@@ -1,8 +1,10 @@
 rem 执行改批处理前先要目录下创建font_properties文件 
 
+REM 生成tr文件
 echo Run Tesseract for Training.. 
-tesseract.exe mjorcen.normal.exp0.tif mjorcen.normal.exp0 nobatch box.train 
- 
+tesseract.exe mjorcen.normal.exp0.tif mjorcen.normal.exp0 nobatch box.train   
+
+REM 生成Character集合
 echo Compute the Character Set.. 
 unicharset_extractor.exe mjorcen.normal.exp0.box 
 shapeclustering.exe -F font_properties.txt -U unicharset mjorcen.normal.exp0.tr
